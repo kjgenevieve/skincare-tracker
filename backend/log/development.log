@@ -17699,3 +17699,324 @@ Migrating to CreateSteps (20191030172447)
   [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = $1 LIMIT $2[0m  [["name", "Methylparaben"], ["LIMIT", 1]]
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mUserProduct Load (0.9ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2019-10-30 11:56:26 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/genevieve/.rvm/gems/ruby-2.6.1/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/genevieve/.rvm/gems/ruby-2.6.1/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.6ms | Allocations: 481)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 2641)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-10-30 11:56:27 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/ingredients" for ::1 at 2019-10-30 11:56:39 -0700
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (1.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3:in `index'
+Completed 200 OK in 43ms (Views: 26.7ms | ActiveRecord: 9.7ms | Allocations: 23843)
+
+
+Started GET "/ingredient/878" for ::1 at 2019-10-30 11:56:56 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/ingredient/878"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/ingredients/878" for ::1 at 2019-10-30 11:57:00 -0700
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"878"}
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 878], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:7:in `show'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2729)
+
+
+Started GET "/ingredients" for ::1 at 2019-10-30 11:57:04 -0700
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:3:in `index'
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.9ms | Allocations: 18227)
+
+
+Started GET "/productingredients" for ::1 at 2019-10-30 11:57:47 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/productingredients"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/product_ingredients" for ::1 at 2019-10-30 11:58:01 -0700
+Processing by ProductIngredientsController#index as HTML
+  [1m[36mProductIngredient Load (1.1ms)[0m  [1m[34mSELECT "product_ingredients".* FROM "product_ingredients"[0m
+  ↳ app/controllers/product_ingredients_controller.rb:3:in `index'
+Completed 200 OK in 49ms (Views: 35.2ms | ActiveRecord: 7.5ms | Allocations: 26630)
+
+
+Started GET "/products" for ::1 at 2019-10-30 11:58:30 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:3:in `index'
+Completed 200 OK in 25ms (Views: 12.1ms | ActiveRecord: 7.9ms | Allocations: 11389)
+
+
+Started GET "/user_products" for ::1 at 2019-10-30 11:59:18 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.7ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+Completed 200 OK in 22ms (Views: 10.9ms | ActiveRecord: 6.6ms | Allocations: 10987)
+
+
+Started GET "/user_products" for ::1 at 2019-10-30 12:23:44 -0700
+  [1m[35m (12.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (1.1ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.82ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 9.6ms | Allocations: 16555)
+
+
+  
+SyntaxError (/Users/genevieve/Development/mod_5/skincare-tracker/backend/app/models/user.rb:4: syntax error, unexpected tIDENTIFIER, expecting end
+    has_many :steps through: :routines
+                    ^~~~~~~
+/Users/genevieve/Development/mod_5/skincare-tracker/backend/app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+    has_many :products through: :user_product    
+                       ^~~~~~~):
+  
+app/models/user.rb:4: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:4: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+app/controllers/user_products_controller.rb:3:in `index'
+Started GET "/user_products" for ::1 at 2019-10-30 12:23:45 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.84ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 1577)
+
+
+  
+SyntaxError (/Users/genevieve/Development/mod_5/skincare-tracker/backend/app/models/user.rb:4: syntax error, unexpected tIDENTIFIER, expecting end
+    has_many :steps through: :routines
+                    ^~~~~~~
+/Users/genevieve/Development/mod_5/skincare-tracker/backend/app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+    has_many :products through: :user_product    
+                       ^~~~~~~):
+  
+app/models/user.rb:4: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:4: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+app/controllers/user_products_controller.rb:3:in `index'
+Started GET "/user_products" for ::1 at 2019-10-30 12:24:15 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.51ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 6.4ms | Allocations: 10549)
+
+
+  
+SyntaxError (/Users/genevieve/Development/mod_5/skincare-tracker/backend/app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+    has_many :products through: :user_product    
+                       ^~~~~~~):
+  
+app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+app/models/user.rb:6: syntax error, unexpected tIDENTIFIER, expecting end
+app/controllers/user_products_controller.rb:3:in `index'
+Started GET "/user_products" for ::1 at 2019-10-30 12:24:35 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.3ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.07ms)
+Completed 200 OK in 55ms (Views: 40.5ms | ActiveRecord: 12.7ms | Allocations: 29412)
+
+
+Started GET "/user_products" for ::1 at 2019-10-30 12:25:00 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (102.16ms)
+Completed 200 OK in 132ms (Views: 110.2ms | ActiveRecord: 19.6ms | Allocations: 45155)
+
+
+Started GET "/user_products" for ::1 at 2019-10-30 12:26:19 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (76.75ms)
+Completed 200 OK in 99ms (Views: 73.3ms | ActiveRecord: 23.5ms | Allocations: 45303)
+
+
+Started GET "/user_products" for ::1 at 2019-10-30 12:26:40 -0700
+Processing by UserProductsController#index as HTML
+  [1m[36mUserProduct Load (0.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (69.78ms)
+Completed 200 OK in 90ms (Views: 68.6ms | ActiveRecord: 19.3ms | Allocations: 45272)
+
+
