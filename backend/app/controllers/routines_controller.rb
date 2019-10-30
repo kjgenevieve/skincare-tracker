@@ -1,0 +1,2 @@
+class RoutinesController < ApplicationController
+end
