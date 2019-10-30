@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  routine_id: 1
+  product_id: 1
+  name: MyString
+  days: MyString
+  notes: MyString
+
+two:
+  routine_id: 1
+  product_id: 1
+  name: MyString
+  days: MyString
+  notes: MyString

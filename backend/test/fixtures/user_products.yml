@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  product_id: 1
+  current: false
+  rating: 1
+  wishlist: false
+  opened: 2019-10-30
+  expires: 2019-10-30
+  caused_acne: false
+  notes: MyString
+
+two:
+  user_id: 1
+  product_id: 1
+  current: false
+  rating: 1
+  wishlist: false
+  opened: 2019-10-30
+  expires: 2019-10-30
+  caused_acne: false
+  notes: MyString

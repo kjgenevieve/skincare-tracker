@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  name: MyString
+  current: false
+  started: 2019-10-30
+  ended: 2019-10-30
+  comment: MyString
+  dicont_bc: MyString
+
+two:
+  user_id: 1
+  name: MyString
+  current: false
+  started: 2019-10-30
+  ended: 2019-10-30
+  comment: MyString
+  dicont_bc: MyString
