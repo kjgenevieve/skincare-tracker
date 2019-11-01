@@ -26033,3 +26033,880 @@ Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.7ms | Allocations: 3318)
 Completed 200 OK in 76ms (Views: 60.5ms | ActiveRecord: 9.4ms | Allocations: 39180)
 
 
+Started GET "/" for ::1 at 2019-11-01 15:19:04 -0700
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/genevieve/.rvm/gems/ruby-2.6.1/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/genevieve/.rvm/gems/ruby-2.6.1/gems/railties-6.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.4ms | Allocations: 316)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 1603)
+
+
+Started GET "/user_products" for ::1 at 2019-11-01 15:19:07 -0700
+Started GET "/users/13" for ::1 at 2019-11-01 15:19:07 -0700
+Processing by UserProductsController#index as */*
+  [1m[36mUserProduct Load (3.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"13"}
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mUserProduct Load (0.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (7.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (92.1ms)
+Completed 200 OK in 155ms (Views: 92.0ms | ActiveRecord: 47.2ms | Allocations: 65886)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (117.75ms)
+Completed 200 OK in 141ms (Views: 92.3ms | ActiveRecord: 46.8ms | Allocations: 77941)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:19:21 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:19:21 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUserProduct Load (1.6ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mIngredient Load (2.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (4.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (47.75ms)
+[active_model_serializers]   [1m[36mIngredient Load (4.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+Completed 200 OK in 50ms (Views: 38.1ms | ActiveRecord: 12.0ms | Allocations: 32358)
+
+
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (93.6ms)
+Completed 200 OK in 97ms (Views: 74.8ms | ActiveRecord: 21.3ms | Allocations: 56053)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:19:29 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:19:29 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (1.7ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.87ms)
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 200 OK in 46ms (Views: 38.0ms | ActiveRecord: 8.1ms | Allocations: 30068)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (11.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (116.14ms)
+Completed 200 OK in 122ms (Views: 91.4ms | ActiveRecord: 27.0ms | Allocations: 56029)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:19:46 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:19:46 -0700
+Processing by UserProductsController#index as */*
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.6ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (0.8ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (1.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (3.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (51.89ms)
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 200 OK in 56ms (Views: 47.8ms | ActiveRecord: 7.4ms | Allocations: 33200)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (104.44ms)
+Completed 200 OK in 109ms (Views: 88.4ms | ActiveRecord: 19.2ms | Allocations: 56028)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:21:06 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:21:06 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (0.8ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mIngredient Load (1.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (2.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.07ms)
+[active_model_serializers]   [1m[36mIngredient Load (4.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+Completed 200 OK in 46ms (Views: 35.0ms | ActiveRecord: 10.6ms | Allocations: 32318)
+
+
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (90.91ms)
+Completed 200 OK in 94ms (Views: 72.9ms | ActiveRecord: 20.6ms | Allocations: 56029)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:21:14 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:21:14 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (1.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (2.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (76.71ms)
+[active_model_serializers]   [1m[36mIngredient Load (11.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+Completed 200 OK in 80ms (Views: 68.7ms | ActiveRecord: 10.6ms | Allocations: 29194)
+
+
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (2.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (2.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (175.46ms)
+Completed 200 OK in 179ms (Views: 144.8ms | ActiveRecord: 33.4ms | Allocations: 56028)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:21:46 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:21:46 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.6ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUserProduct Load (1.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (1.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (52.16ms)
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 200 OK in 56ms (Views: 48.1ms | ActiveRecord: 7.5ms | Allocations: 33187)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (99.4ms)
+Completed 200 OK in 103ms (Views: 83.8ms | ActiveRecord: 17.1ms | Allocations: 56028)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:22:31 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:22:31 -0700
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"13"}
+Processing by UserProductsController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  [1m[36mUserProduct Load (0.8ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (1.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (4.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (12.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (7.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (8.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (4.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (10.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (5.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (13.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (3.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (107.61ms)
+Completed 200 OK in 113ms (Views: 77.1ms | ActiveRecord: 35.2ms | Allocations: 32388)
+
+
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (7.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (23.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (31.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (3.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (286.33ms)
+Completed 200 OK in 290ms (Views: 174.0ms | ActiveRecord: 113.8ms | Allocations: 56164)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:23:40 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:23:40 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.5ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (1.2ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (50.62ms)
+[active_model_serializers]   [1m[36mIngredient Load (5.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 200 OK in 54ms (Views: 47.9ms | ActiveRecord: 5.4ms | Allocations: 36465)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (84.06ms)
+Completed 200 OK in 88ms (Views: 67.1ms | ActiveRecord: 18.2ms | Allocations: 56028)
+
+
+Started GET "/user_products" for ::1 at 2019-11-01 15:23:50 -0700
+Started GET "/users/13" for ::1 at 2019-11-01 15:23:50 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.6ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUserProduct Load (1.6ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.0ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (48.5ms)
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 6.7ms | Allocations: 28141)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (2.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (6.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (1.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (12.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (2.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (154.33ms)
+Completed 200 OK in 158ms (Views: 116.2ms | ActiveRecord: 39.6ms | Allocations: 56039)
+
+
+Started GET "/users/13" for ::1 at 2019-11-01 15:23:55 -0700
+Started GET "/user_products" for ::1 at 2019-11-01 15:23:55 -0700
+Processing by UsersController#show as */*
+Processing by UserProductsController#index as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mUserProduct Load (0.4ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products"[0m
+  ↳ app/controllers/user_products_controller.rb:3:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = $1[0m  [["name", "Genevieve"]]
+[active_model_serializers]   ↳ app/models/user.rb:9:in `user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUserProduct Load (1.6ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   ↳ app/models/user.rb:12:in `map'
+[active_model_serializers]   [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/models/user.rb:13:in `block in user_ingredients'
+[active_model_serializers]   [1m[36mCACHE UserProduct Load (0.1ms)[0m  [1m[34mSELECT "user_products".* FROM "user_products" WHERE "user_products"."user_id" = $1[0m  [["user_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (47.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (5.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 56]]
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers]   [1m[36mIngredient Load (1.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 57]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mProduct Load (5.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/user_products_controller.rb:3:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (217.75ms)
+[active_model_serializers]   [1m[36mIngredient Load (44.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 58]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 200 OK in 221ms (Views: 158.2ms | ActiveRecord: 62.3ms | Allocations: 36469)
+
+
+[active_model_serializers]   [1m[36mIngredient Load (1.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 59]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 60]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 61]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers]   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "product_ingredients" ON "ingredients"."id" = "product_ingredients"."ingredient_id" WHERE "product_ingredients"."product_id" = $1[0m  [["product_id", 62]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (277.69ms)
+Completed 200 OK in 281ms (Views: 210.7ms | ActiveRecord: 68.3ms | Allocations: 56029)
+
+
