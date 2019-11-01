@@ -34,11 +34,9 @@ export default class Main extends Component {
     };
 
     getUserProducts = (ids, objects) => {
-        // console.log(objects)
-        
         let userProducts = []
         ids.map (userProductId => {    
-            userProducts = [...userProducts, objects.find(userProduct => userProduct.product.id === userProductId)]
+            return userProducts = [...userProducts, objects.find(userProduct => userProduct.product.id === userProductId)]
         })
         this.setUsersProducts(userProducts)
     };
