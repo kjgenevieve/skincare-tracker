@@ -4,7 +4,11 @@ import 'react-table/react-table.css'
 
 
 export default class ProductTable extends Component {
-    render() {
+  componentDidMount() {
+    console.log(this.props.products)
+  }
+  
+  render() {
     const data = [
         {
             "id": 41,
@@ -122,11 +126,6 @@ export default class ProductTable extends Component {
     Header: 'Notes',
     accessor: 'notes'
   }
-
-
-
-
-
 ]
  
   return <ReactTable

@@ -7,6 +7,8 @@ export default class IncludedIn extends Component {
             <div>
                 INCLUDEDIN...
                 <ProductTable />
+                <ProductTable />
+                <ProductTable />
             </div>
         )
     }
