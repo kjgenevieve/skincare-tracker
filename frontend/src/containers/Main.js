@@ -15,7 +15,7 @@ export default class Main extends Component {
         const user_id = 13
         const urls = [
             `http://localhost:3000/users/${user_id}`,
-            'http://localhost:3000/products'
+            'http://localhost:3000/user_products'
         ];
 
         Promise.all(urls.map(url =>
@@ -27,16 +27,18 @@ export default class Main extends Component {
     };
 
     getProductIds = (data) => {
-        let productObjects = data[1];
+        let userProductObjects = data[1];
         let productIds = data[0].user_products.map (product => product.product_id)
         
-        this.getUserProducts(productIds, productObjects)
+        this.getUserProducts(productIds, userProductObjects)
     };
 
     getUserProducts = (ids, objects) => {
+        // console.log(objects)
+        
         let userProducts = []
         ids.map (userProductId => {    
-            userProducts = [...userProducts, objects.find(product => product.id === userProductId)]
+            userProducts = [...userProducts, objects.find(userProduct => userProduct.product.id === userProductId)]
         })
         this.setUsersProducts(userProducts)
     };
