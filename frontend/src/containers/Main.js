@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import DataTable from '../components/DataTable'
+import ProductTable from '../components/ProductTable'
 import Message from '../components/Message'
 import IncludedIn from './IncludedIn'
 
@@ -12,13 +12,13 @@ export default class Main extends Component {
                     <Route
                         exact
                         path="/products"
-                        render={() => <DataTable />}
+                        render={() => <ProductTable />}
                     />
-                     <Route
+                     {/* <Route
                          exact
                          path ="/ingredients"
-                         render={ () => <DataTable /> }
-                     />
+                         render={ () => <IngredientsTable /> }
+                     /> */}
                      <Route
                          path ="/ingredients/:id"
                          render={ () => <Message /> }
