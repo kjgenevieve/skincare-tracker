@@ -53,15 +53,14 @@ export default class IngredientsTable extends Component {
     const columns = [{
       Header: 'Ingredient',
       accessor: 'ingredient'
+    }, {
+      Header: 'Comodogenic Rating',
+      accessor: 'como_rating',
     }
-    // , {
-    //   Header: 'Comodogenic Rating',
-    //   accessor: 'como_rating',
-    // }
   ]
  
     return <ReactTable
-      data={this.state.ingredientData}
+      data={this.state.ingredientDisplay}
       columns={columns}
       filterable={true}
       defaultFilterMethod={(filter, row, column) => {
