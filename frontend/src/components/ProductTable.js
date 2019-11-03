@@ -27,12 +27,6 @@ export default class ProductTable extends Component {
       this.formatData(this.props.products)
     }
   }
-
-
-
-
-  
-
   
   formatData = (products) => {
     let productData = []
@@ -72,33 +66,6 @@ export default class ProductTable extends Component {
   }
   
   render() {
-    // if (this.props.products!==[]) {
-    //   this.formatData(this.props.products)
-    // }
-    
-    
-      // const data = [
-      //   {
-      //     "id": 41,
-      //     "current": false,
-      //     "rating": 4,
-      //     "wishlist": false,
-      //     "opened": null,
-      //     "expires": null,
-      //     "caused_acne": false,
-      //     "notes": "A little harsh and drying.",
-      //     "product": {
-      //       "brand": "Neutrogena",
-      //       "name": "Oil-Free Acne Wash Pink Grapefruit Facial Cleanser",
-      //       "category": "cleanser",
-      //       "img_url": "https://target.scene7.com/is/image/Target/11537188?wid=520&hei=520&fmt=pjpeg",
-      //       "sunscreen_type": null,
-      //       "spf": null,
-      //       "pa": null,
-      //     }
-      //   }
-      // ]
-      
     const columns = [{
       Header: 'Image',
       accessor: 'product.img_url'
@@ -151,6 +118,10 @@ export default class ProductTable extends Component {
       data={this.state.productDisplay}
       columns={columns}
       filterable={true}
+      defaultFilterMethod={(filter, row, column) => {
+        const id = filter.pivotId || filter.id
+        return row[id] !== undefined ? String(row[id]).includes(filter.value) : true}
+      }
     />
   }
 
