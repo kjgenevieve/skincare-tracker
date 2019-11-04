@@ -9,7 +9,8 @@ export default class Main extends Component {
         super();
         this.state = {
             usersProducts: [],
-            usersIngredients: []
+            usersIngredients: [],
+            currentIngredient: {}
         }
     }
 
@@ -75,6 +76,26 @@ export default class Main extends Component {
     }
 
 
+    handleIngredientClick = (id) => {
+        // console.log(prevState)
+        // let foundIngredient = prevState.currentIngredient;
+        
+
+        // prevState.usersIngredients.map(ingredient => {
+        //     if (ingredient.id == id) {
+        //         foundIngredient = ingredient;
+        //     }
+        //     return foundIngredient
+        // });
+
+        // this.setState((prevState) => {
+        //     usersProducts: prevState.usersProducts,
+        //     usersIngredients: prevState.usersIngredients,
+        //     currentIngredient: foundIngredient
+        // }, (() => console.log(this.state)))
+    };
+
+
     
     render() {
         return (
@@ -101,8 +122,14 @@ export default class Main extends Component {
                         )} 
                      />
                     <Route
-                         path ="/ingredients/:id"
-                         render={ () => <IngredientProfile /> }
+                        path ="/ingredients/:id"
+                        render={ (props) => (
+                            <IngredientProfile
+                                {...props}
+                                handleIngredientClick={this.handleIngredientClick}
+                                ingredient={this.state.currentIngredient}
+                            /> 
+                        )}
                     />
             </div>
         )

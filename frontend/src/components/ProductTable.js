@@ -115,10 +115,15 @@ export default class ProductTable extends Component {
       accessor: 'notes'
     }
   ]
- 
+
     return <ReactTable
       data={this.state.productDisplay}
       columns={columns}
+      defaultPageSize={50}
+      style={{
+        height: "400px" // This will force the table body to overflow and scroll, since there is not enough room
+      }}
+      className="-striped -highlight"
       filterable={true}
       defaultFilterMethod={(filter, row, column) => {
         const id = filter.pivotId || filter.id
@@ -126,5 +131,4 @@ export default class ProductTable extends Component {
       }
     />
   }
-
 }

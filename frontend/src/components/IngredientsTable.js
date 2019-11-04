@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
@@ -33,7 +34,10 @@ export default class IngredientsTable extends Component {
     ingredients.map ((ingredient) => {
       return ingredientData = [...ingredientData,
         {
-          "ingredient": ingredient.ingredient.name,
+          // "ingredient": ingredient.ingredient.name,
+          
+
+          "ingredient": <Link to={`/ingredients/${ingredient.ingredient.id}`}>{ingredient.ingredient.name}</Link>,
           "como_rating": ingredient.ingredient.como_rating,
         }
       ]
@@ -62,6 +66,11 @@ export default class IngredientsTable extends Component {
     return <ReactTable
       data={this.state.ingredientDisplay}
       columns={columns}
+      defaultPageSize={50}
+      style={{
+        height: "400px" // This will force the table body to overflow and scroll, since there is not enough room
+      }}
+      className="-striped -highlight"
       filterable={true}
       defaultFilterMethod={(filter, row, column) => {
         const id = filter.pivotId || filter.id
