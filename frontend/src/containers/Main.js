@@ -76,23 +76,23 @@ export default class Main extends Component {
     }
 
 
-    handleIngredientClick = (id) => {
-        // console.log(prevState)
-        // let foundIngredient = prevState.currentIngredient;
+    handleIngredientClick = (prevState, id) => {
+        // console.log(prevState.usersIngredients)
+        // console.log(this.state)
         
+        // console.log(this.state)
 
-        // prevState.usersIngredients.map(ingredient => {
-        //     if (ingredient.id == id) {
-        //         foundIngredient = ingredient;
-        //     }
-        //     return foundIngredient
-        // });
+        let foundIngredient = prevState.currentIngredient;
+        this.state.usersIngredients.map(ingredient => {
+            if (ingredient.id == id) {
+                foundIngredient = ingredient;
+            }
+            return foundIngredient
+        });
 
-        // this.setState((prevState) => {
-        //     usersProducts: prevState.usersProducts,
-        //     usersIngredients: prevState.usersIngredients,
-        //     currentIngredient: foundIngredient
-        // }, (() => console.log(this.state)))
+        this.setState({
+            currentIngredient: foundIngredient
+        }, (() => console.log(this.state)))
     };
 
 
