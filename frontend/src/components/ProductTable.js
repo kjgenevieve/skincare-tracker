@@ -19,12 +19,14 @@ export default class ProductTable extends Component {
     //   "this.props.products in cDU=",
     //   this.props.products
     // );
-    if (
-      this.props.products.length !==
-      prevProps.products.length
-    ) {
-      // console.log("Cdu logic fires");
-      this.formatData(this.props.products)
+    if (this.props.products) {
+      if (
+        this.props.products.length !==
+        prevProps.products.length
+      ) {
+        // console.log("Cdu logic fires");
+        this.formatData(this.props.products)
+      }
     }
   }
   
