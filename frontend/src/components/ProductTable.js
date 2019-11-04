@@ -3,32 +3,32 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
 export default class ProductTable extends Component {
-  constructor() {
-    super();
-    this.state = {
-      productDisplay: []
-    }
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     productDisplay: []
+  //   }
+  // }
 
-  componentDidUpdate(prevProps) {
-    // console.log(
-    //   "prevProps.products=",
-    //   prevProps.products
-    // );
-    // console.log(
-    //   "this.props.products in cDU=",
-    //   this.props.products
-    // );
-    if (this.props.products) {
-      if (
-        this.props.products.length !==
-        prevProps.products.length
-      ) {
-        // console.log("Cdu logic fires");
-        this.formatData(this.props.products)
-      }
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   // console.log(
+  //   //   "prevProps.products=",
+  //   //   prevProps.products
+  //   // );
+  //   // console.log(
+  //   //   "this.props.products in cDU=",
+  //   //   this.props.products
+  //   // );
+  //   if (this.props.products) {
+  //     if (
+  //       this.props.products.length !==
+  //       prevProps.products.length
+  //     ) {
+  //       // console.log("Cdu logic fires");
+  //       this.formatData(this.props.products)
+  //     }
+  //   }
+  // }
   
   formatData = (products) => {
     let productData = []
@@ -56,16 +56,17 @@ export default class ProductTable extends Component {
         }
       ]
     })
-    this.setProductDisplayState(productData)
+    return productData
+    // this.setProductDisplayState(productData)
   }
 
-  setProductDisplayState = (productData) => {
-    if (productData.length > 0) {
-      this.setState({
-        productDisplay: productData
-      })
-    }
-  }
+  // setProductDisplayState = (productData) => {
+  //   if (productData.length > 0) {
+  //     this.setState({
+  //       productDisplay: productData
+  //     })
+  //   }
+  // }
   
   render() {
     const columns = [{
@@ -117,7 +118,7 @@ export default class ProductTable extends Component {
   ]
 
     return <ReactTable
-      data={this.state.productDisplay}
+      data={this.formatData(this.props.products)}
       columns={columns}
       defaultPageSize={50}
       style={{

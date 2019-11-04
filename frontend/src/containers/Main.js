@@ -1,137 +1,141 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import ProductTable from '../components/ProductTable'
-import IngredientsTable from '../components/IngredientsTable'
-import IngredientProfile from './IngredientProfile'
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import ProductTable from "../components/ProductTable";
+import IngredientsTable from "../components/IngredientsTable";
+import IngredientProfile from "./IngredientProfile";
 
 export default class Main extends Component {
-    constructor() {
-        super();
-        this.state = {
-            usersProducts: [],
-            usersIngredients: [],
-            currentIngredient: {}
-        }
-    }
-
-    componentDidMount() {
-        const user_id = 13
-        const urls = [
-            `http://localhost:3000/users/${user_id}`,
-            'http://localhost:3000/user_products',
-            'http://localhost:3000/product_ingredients'
-        ];
-
-        Promise.all(urls.map(url =>
-            fetch(url)
-                .then(resp => resp.json())
-                .catch(error => console.log('There was a problem!', error))
-            ))
-            .then(data => this.getProductIds(data))
+  constructor() {
+    super();
+    this.state = {
+      usersProducts: [],
+      usersIngredients: [],
+      currentIngredient: {}
     };
+  }
 
-    getProductIds = (data) => {
-        let userProductObjects = data[1];
-        let allIngredients = data[2];
-        let productIds = data[0].user_products.map (product => product.product_id)
-        
-        this.getUserProducts(productIds, userProductObjects, allIngredients)
-    };
+  componentDidMount() {
+    const user_id = 13;
+    const urls = [
+      `http://localhost:3000/users/${user_id}`,
+      "http://localhost:3000/user_products",
+      "http://localhost:3000/product_ingredients"
+    ];
 
-    getUserProducts = (ids, objects, allIngredients) => {
-        let userProducts = []
-        ids.map (userProductId => {    
-            return userProducts = [...userProducts, objects.find(userProduct => userProduct.product.id === userProductId)]
-        })
-        this.getUserIngredients(ids, userProducts, allIngredients)
-    };
+    Promise.all(
+      urls.map(url =>
+        fetch(url)
+          .then(resp => resp.json())
+          .catch(error => console.log("There was a problem!", error))
+      )
+    ).then(data => this.getProductIds(data));
+  }
 
-    getUserIngredients = (ids, userProducts, allIngredients) => {
-        let rawIngredients = []
-        ids.map (userProductId => {
-            return rawIngredients = [...rawIngredients, allIngredients.filter(ingredient => ingredient.product.id === userProductId)]
-        })
-    
-        rawIngredients = rawIngredients.flat()
-        let userIngredients = []
-        let userIngIds = []
+  getProductIds = data => {
+    let userProductObjects = data[1];
+    let allIngredients = data[2];
+    let productIds = data[0].user_products.map(product => product.product_id);
 
-        rawIngredients.map ((rawIngredient) => {
-            if (userIngIds.includes(rawIngredient.ingredient.id)) {
-            } else {
-                userIngIds = [...userIngIds, rawIngredient.ingredient.id];
-                userIngredients = [...userIngredients, rawIngredient]
-            }
-            return userIngredients
-        })
-        
-        this.setNewState(userProducts, userIngredients)
-    }
+    this.getUserProducts(productIds, userProductObjects, allIngredients);
+  };
 
-    setNewState = (products, ingredients) => {
-        this.setState({
-            usersProducts: products,
-            usersIngredients: ingredients
-        })
-    }
+  getUserProducts = (ids, objects, allIngredients) => {
+    let userProducts = [];
+    ids.map(userProductId => {
+      return (userProducts = [
+        ...userProducts,
+        objects.find(userProduct => userProduct.product.id === userProductId)
+      ]);
+    });
+    this.getUserIngredients(ids, userProducts, allIngredients);
+  };
 
-
-    handleIngredientClick = (prevState, id) => {
-        // console.log(prevState.usersIngredients)
-        // console.log(this.state)
-        
-        // console.log(this.state)
-
-        let foundIngredient = prevState.currentIngredient;
-        this.state.usersIngredients.map(ingredient => {
-            if (ingredient.id == id) {
-                foundIngredient = ingredient;
-            }
-            return foundIngredient
-        });
-
-        this.setState({
-            currentIngredient: foundIngredient
-        }, (() => console.log(this.state)))
-    };
-
-
-    
-    render() {
-        return (
-            <div>
-                Main Container.
-                    <Route
-                        exact
-                        path="/products"
-                        render={(props) => (
-                            <ProductTable
-                                {...props}
-                                products={this.state.usersProducts}
-                            />
-                        )}
-                    />
-                    <Route
-                        exact
-                        path ="/ingredients"
-                        render={(props) => (
-                            <IngredientsTable
-                                {...props}
-                                ingredients={this.state.usersIngredients}
-                            />
-                        )} 
-                     />
-                    <Route
-                        path ="/ingredients/:id"
-                        render={ (props) => (
-                            <IngredientProfile
-                                {...props}
-                                handleIngredientClick={this.handleIngredientClick}
-                                ingredient={this.state.currentIngredient}
-                            /> 
-                        )}
-                    />
-            </div>
+  getUserIngredients = (ids, userProducts, allIngredients) => {
+    let rawIngredients = [];
+    ids.map(userProductId => {
+      return (rawIngredients = [
+        ...rawIngredients,
+        allIngredients.filter(
+          ingredient => ingredient.product.id === userProductId
         )
-    }
+      ]);
+    });
+
+    rawIngredients = rawIngredients.flat();
+    let userIngredients = [];
+    let userIngIds = [];
+
+    rawIngredients.map(rawIngredient => {
+      if (userIngIds.includes(rawIngredient.ingredient.id)) {
+      } else {
+        userIngIds = [...userIngIds, rawIngredient.ingredient.id];
+        userIngredients = [...userIngredients, rawIngredient];
+      }
+      return userIngredients;
+    });
+
+    this.setNewState(userProducts, userIngredients);
+  };
+
+  setNewState = (products, ingredients) => {
+    this.setState({
+      usersProducts: products,
+      usersIngredients: ingredients
+    });
+  };
+
+//   setCurrentIngredient = id => {
+//     this.setState(
+//       prevState => {
+//         let newCurrent = {};
+//         prevState.usersIngredients.map(item => {
+//           if (item.ingredient.id == id) {
+//             newCurrent = item;
+//           }
+//         });
+//         return { currentIngredient: newCurrent };
+//         // usersProducts: prevState.usersProducts,
+//         // usersIngredients: prevState.usersIngredients,
+//         // currentIngredient: foundIngredient
+//       },
+//       () => {
+//         console.log(this.state.currentIngredient);
+//       }
+//     );
+//   };
+
+  render() {
+    return (
+      <div>
+        Main Container.
+        <Route
+          exact
+          path="/products"
+          render={props => (
+            <ProductTable {...props} products={this.state.usersProducts} />
+          )}
+        />
+        <Route
+          exact
+          path="/ingredients"
+          render={props => (
+            <IngredientsTable
+              {...props}
+              ingredients={this.state.usersIngredients}
+            />
+          )}
+        />
+        <Route
+          path="/ingredients/:id"
+          render={() => (
+            <IngredientProfile
+            //   {...props}
+            //   onSetCurrentIngredient={this.setCurrentIngredient}
+            //   ingredient={this.state.currentIngredient}
+            />
+          )}
+        />
+      </div>
+    );
+  }
 }
