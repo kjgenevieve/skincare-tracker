@@ -4,35 +4,9 @@ import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 
 export default class IngredientsTable extends Component {
-  constructor(props) {
-    super();
-    console.log(props)
-    this.state = {
-      ingredientDisplay: []
-    }
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   console.log("UPDATE ME")
-  //   // console.log(
-  //   //   "prevProps.ingredients=",
-  //   //   prevProps.ingredients
-  //   // );
-  //   // console.log(
-  //   //   "this.props.ingredients in cDU=",
-  //   //   this.props.ingredients
-  //   // );
-  //   if (
-  //     this.props.ingredients.length !==
-  //     prevProps.ingredients.length
-  //   ) {
-  //     // console.log("Cdu logic fires");
-  //     this.formatData(this.props.ingredients)
-  //   }
-  // }
   
   formatData = (ingredients) => {
-    let ingredientData = ingredients.map((ingredient) => {
+    let ingredientData = ingredients.map ((ingredient) => {
       return {
           "ingredient": <Link to={`/ingredients/${ingredient.ingredient.id}`}>{ingredient.ingredient.name}</Link>,
           "como_rating": ingredient.ingredient.como_rating,
@@ -41,14 +15,6 @@ export default class IngredientsTable extends Component {
     return ingredientData
   }
 
-  setIngredientDisplayState = (ingredientData) => {
-    if (ingredientData.length > 0) {
-      this.setState({
-        ingredientDisplay: ingredientData
-      })
-    }
-  }
-  
   render() {
     const columns = [{
       Header: 'Ingredient',
