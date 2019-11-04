@@ -31,6 +31,7 @@ export default class Main extends Component {
     };
 
     getProductIds = (data) => {
+        console.log("TEST")
         let userProductObjects = data[1];
         let allIngredients = data[2];
         let productIds = data[0].user_products.map (product => product.product_id)
@@ -69,6 +70,7 @@ export default class Main extends Component {
     }
 
     setNewState = (products, ingredients) => {
+        console.log("in the set state")
         this.setState({
             usersProducts: products,
             usersIngredients: ingredients
@@ -76,23 +78,23 @@ export default class Main extends Component {
     }
 
 
-    handleIngredientClick = (prevState, id) => {
-        // console.log(prevState.usersIngredients)
-        // console.log(this.state)
+    handleIngredientClick = (id) => {
+        // console.log(prevState)
+        // let foundIngredient = prevState.currentIngredient;
         
-        // console.log(this.state)
 
-        let foundIngredient = prevState.currentIngredient;
-        this.state.usersIngredients.map(ingredient => {
-            if (ingredient.id == id) {
-                foundIngredient = ingredient;
-            }
-            return foundIngredient
-        });
+        // prevState.usersIngredients.map(ingredient => {
+        //     if (ingredient.id == id) {
+        //         foundIngredient = ingredient;
+        //     }
+        //     return foundIngredient
+        // });
 
-        this.setState({
-            currentIngredient: foundIngredient
-        }, (() => console.log(this.state)))
+        // this.setState((prevState) => {
+        //     usersProducts: prevState.usersProducts,
+        //     usersIngredients: prevState.usersIngredients,
+        //     currentIngredient: foundIngredient
+        // }, (() => console.log(this.state)))
     };
 
 
