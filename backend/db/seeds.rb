@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+# User.destroy_all
 Product.destroy_all
 UserProduct.destroy_all
 Ingredient.destroy_all
 ProductIngredient.destroy_all
 
-u1 = User.create
-u1.name = "Genevieve"
-u1.save
+# u1 = User.create
+# u1.name = "Genevieve"
+# u1.save
 
 p1 = Product.create
 p1.brand = "Neutrogena"
