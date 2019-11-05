@@ -84,26 +84,6 @@ export default class Main extends Component {
     });
   };
 
-//   setCurrentIngredient = id => {
-//     this.setState(
-//       prevState => {
-//         let newCurrent = {};
-//         prevState.usersIngredients.map(item => {
-//           if (item.ingredient.id == id) {
-//             newCurrent = item;
-//           }
-//         });
-//         return { currentIngredient: newCurrent };
-//         // usersProducts: prevState.usersProducts,
-//         // usersIngredients: prevState.usersIngredients,
-//         // currentIngredient: foundIngredient
-//       },
-//       () => {
-//         console.log(this.state.currentIngredient);
-//       }
-//     );
-//   };
-
   render() {
     return (
       <div>
