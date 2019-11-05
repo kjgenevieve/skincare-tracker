@@ -19,15 +19,7 @@ class IngredientsController < ApplicationController
             if ingredients.include?(ingredient)
                 selected_products<<{user_notes: review, product: review.product}
             end
-        end
-
-        puts selected_products
-
-        # user.products.ingredients.each do |product_ingredient|
-        #     if product_ingredient.id == ingredient.id
-        #         ingredientProducts << product
-        #     end
-        
+        end        
 
         render json: {
             ingredient_id: params[:ingredient_id],
