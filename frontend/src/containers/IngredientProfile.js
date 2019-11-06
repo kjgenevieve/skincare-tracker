@@ -3,31 +3,16 @@ import Message from '../components/Message'
 import IncludedIn from './IncludedIn'
 
 export default class IngredientProfile extends Component {
-        // This is a case where I should be making an api call instead of mix and matching.
-        // This isn't a bennyhannas; we need to do as much of the information synthesizing as possible on the backend
-        // So, what I'll do instead, is make a new API endpoint that allows me to pass in a user id and an ingredient id, and in response get an object sort of like this:
-            // {ingredient:
-                //     id: 
-                //     name: 
-                //     products:
-                //         {
-                //             id: 
-                //             name:
-                //             blahblah:
-                //         }
-                // }
-       
-        // Once I have that info back, I can set state HERE in this component, filter through the products to pass into good/bad/neutral, and everything will be BEAUTIFUL
-
-
-
     constructor() {
         super();
         this.state = {
-            currentIngredient = {},
-            ingredientsProducts = []
+            ingredient: {},
+            userProductReviews: {}
         }
     }
+
+    // setState in this component,
+    // filter through the products to pass into good/bad/neutral
 
     componentDidMount() {
         this.getIngredientsProducts()
@@ -35,11 +20,33 @@ export default class IngredientProfile extends Component {
 
     getIngredientsProducts = () => {
         let userId = 13
-        let ingredientId = this.props.match.params.id
+        let ingredientId = window.location.pathname.split("/").pop()
         
-        fetch(url)
+        fetch(`http://localhost:3000/users/${userId}/ingredients/${ingredientId}`)
         .then(res => res.json())
-        .then(data => )
+        // .then(console.log)
+        .then(data => this.destructureData(data))
+    }
+
+    destructureData = (data) => {
+        let ingredient = {
+            id: data.ingredient_id,
+            name: data.name,
+            como_rating: data.como_rating
+        }
+        let userProductReviews = {
+            userProductReviews: data.user_product_reviews
+        }
+        this.setNewState(ingredient, userProductReviews)
+    }
+
+
+    setNewState = (ingredient, userProductReviews) => {
+        this.setState({
+            ingredient: ingredient,
+            userProductReviews, userProductReviews
+        })
+        // , () => console.log("STATE!", this.state)
     }
     
     // SHOW OR PASS INFORMATION
@@ -49,12 +56,13 @@ export default class IngredientProfile extends Component {
     render() {
         return (
             <div>
-                    IngredientProfile
+                IngredientProfile
 
-                    <Message />
-                    <IncludedIn
-                        // products={this.state.ingredientsProducts}
-                    />
+                <Message />
+                <IncludedIn
+                    userProductReviews={this.state.userProductReviews}
+                    ingredient={this.state.ingredient}
+                />
             </div>
         )
     }

@@ -9,7 +9,6 @@ class IngredientsController < ApplicationController
 
 
     def ingredient_params
-        # byebug
         params.permit(:id, :ingredient_id)
         ingredient = Ingredient.find(params[:ingredient_id])
         user = User.find(13)

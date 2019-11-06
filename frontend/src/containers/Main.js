@@ -109,7 +109,7 @@ export default class Main extends Component {
           path="/ingredients/:id"
           render={() => (
             <IngredientProfile
-            //   {...props}
+              // {...props}
             //   onSetCurrentIngredient={this.setCurrentIngredient}
             //   ingredient={this.state.currentIngredient}
             />
