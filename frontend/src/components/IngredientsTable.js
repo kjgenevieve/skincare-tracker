@@ -30,10 +30,10 @@ export default class IngredientsTable extends Component {
       columns={columns}
       defaultPageSize={50}
       style={{
-        height: "400px" // This will force the table body to overflow and scroll, since there is not enough room
+        height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
       }}
       className="-striped -highlight"
-      filterable={true}
+      filterable={false}
       defaultFilterMethod={(filter, row, column) => {
         const id = filter.pivotId || filter.id
         return row[id] !== undefined ? String(row[id]).includes(filter.value) : true}

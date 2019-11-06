@@ -16,7 +16,7 @@ class IngredientsController < ApplicationController
         user_reviews = user.user_products.select do |review| 
             ingredients = review.product.ingredients
             if ingredients.include?(ingredient)
-                selected_products<<{user_notes: review, product: review.product}
+                selected_products << {user_notes: review, product: review.product}
             end
         end        
 
