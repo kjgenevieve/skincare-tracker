@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import IngredientProductTable from '../components/IngredientProductTable';
 
 export default class IncludedIn extends Component {
-    constructor() {
-        super();
-        this.state = ({
-            positive: [],
-            negative: [],
-            neutral: []
-        })
-    }
-
     separateProductReviews = () => {
         let reviews = this.props.userProductReviews.userProductReviews;
         let positive = [];
@@ -35,13 +26,13 @@ export default class IncludedIn extends Component {
         
         return (
             <div>
-                {/* Positive */}
+                <h2>Positive</h2>
                 <IngredientProductTable reviews={positive}/>
 
-                {/* Negative */}
+                <h2>Negative</h2>
                 <IngredientProductTable reviews={negative}/>
 
-                {/* Neutral */}
+                <h2>Neutral</h2>
                 <IngredientProductTable reviews={neutral}/>
             </div>
         )
@@ -50,7 +41,6 @@ export default class IncludedIn extends Component {
     render() {
         return (
             <div>
-                INCLUDEDIN...
                 {this.separateProductReviews()}
             </div>
         )

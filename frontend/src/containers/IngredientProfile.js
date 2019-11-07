@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PageTitle from '../components/PageTitle';
 import Message from '../components/Message'
 import IncludedIn from './IncludedIn'
 
@@ -56,7 +57,7 @@ export default class IngredientProfile extends Component {
     render() {
         return (
             <div>
-                IngredientProfile
+                <PageTitle location="ingredient profile"/>
 
                 <Message />
                 <IncludedIn

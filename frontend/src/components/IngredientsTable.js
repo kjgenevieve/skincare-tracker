@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import ReactTable from 'react-table'
-import 'react-table/react-table.css'
+import { Link } from 'react-router-dom';
+import PageTitle from './PageTitle';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
 
 export default class IngredientsTable extends Component {
   
@@ -25,20 +26,25 @@ export default class IngredientsTable extends Component {
     }
   ]
  
-    return <ReactTable
-      data={this.formatData(this.props.ingredients)}
-      columns={columns}
-      defaultPageSize={50}
-      style={{
-        height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
-      }}
-      className="-striped -highlight"
-      filterable={false}
-      defaultFilterMethod={(filter, row, column) => {
-        const id = filter.pivotId || filter.id
-        return row[id] !== undefined ? String(row[id]).includes(filter.value) : true}
-      }
-    />
+    return (
+      <div>
+        <PageTitle location="ingredients" />
+        <ReactTable
+          data={this.formatData(this.props.ingredients)}
+          columns={columns}
+          defaultPageSize={50}
+          style={{
+            height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
+          }}
+          className="-striped -highlight"
+          filterable={false}
+          defaultFilterMethod={(filter, row, column) => {
+            const id = filter.pivotId || filter.id
+            return row[id] !== undefined ? String(row[id]).includes(filter.value) : true}
+          }
+        />
+      </div>
+    )
   }
 
 }

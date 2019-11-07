@@ -1,22 +1,14 @@
-.App {
-  text-align: center;
+body {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
 
-.App-logo {
-  height: 40vmin;
+.ui.menu {
+  background-color: #7C8C6E;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.pageTitle {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
 }

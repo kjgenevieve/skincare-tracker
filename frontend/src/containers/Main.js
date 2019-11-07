@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import Home from '../components/Home';
 import ProductTable from "../components/ProductTable";
 import IngredientsTable from "../components/IngredientsTable";
 import IngredientProfile from "./IngredientProfile";
@@ -87,7 +88,13 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        Main Container.
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Home />
+          )}
+        />
         <Route
           exact
           path="/products"
