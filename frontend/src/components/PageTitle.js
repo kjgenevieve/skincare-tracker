@@ -30,7 +30,7 @@ export default class PageTitle extends Component {
             } else if (location === "ingredient profile") {
                 // console.log(location)
                 icon = ingredientProfileIcon;
-                greeting = "Ingredient Profile";
+                greeting = this.props.ingredientName;
             } else {
                 console.log("Default")
             }

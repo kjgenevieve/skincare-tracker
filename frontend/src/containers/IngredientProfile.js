@@ -57,7 +57,7 @@ export default class IngredientProfile extends Component {
     render() {
         return (
             <div>
-                <PageTitle location="ingredient profile"/>
+                <PageTitle location="ingredient profile" ingredientName={this.state.ingredient.name}/>
 
                 <Message />
                 <IncludedIn
