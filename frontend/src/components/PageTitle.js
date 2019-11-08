@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Grid, Header, Image } from 'semantic-ui-react';
+import { Grid, Header, Image } from 'semantic-ui-react';
 import homeIcon from '../assets/user_profile.png';
 import productsIcon from '../assets/products.svg';
 import ingredientsIcon from '../assets/ingredients.svg';
@@ -15,20 +15,20 @@ export default class PageTitle extends Component {
         
         if (location) {
             if (location === "home") {
-                console.log(location)
+                // console.log(location)
                 icon = homeIcon;
                 greeting = "Welcome, Genevieve";
                 circle = true
             } else if (location === "products") {
-                console.log(location)
+                // console.log(location)
                 icon = productsIcon;
                 greeting = "Products";
             } else if (location === "ingredients") {
-                console.log(location)
+                // console.log(location)
                 icon = ingredientsIcon;
                 greeting = "Ingredients";
             } else if (location === "ingredient profile") {
-                console.log(location)
+                // console.log(location)
                 icon = ingredientProfileIcon;
                 greeting = "Ingredient Profile";
             } else {

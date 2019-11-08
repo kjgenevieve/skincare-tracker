@@ -7,17 +7,30 @@ import checkmark from '../assets/checkmark.svg'
 export default class ProductTable extends Component {
   formatData = (products) => {
     let productData = []
-    
     if (products) {
       products.map ((product) => {
         if (product.current === true) {
-          product.current = <img src={checkmark} height="25" alt={product.id}/>
+          product.current = "Yes"
+        } else if (product.current === false) {
+          product.current = "No"
+        } else {
+          product.current = product.current
         }
+
         if (product.wishlist === true) {
-          product.wishlist = <img src={checkmark} height="25" alt={product.id}/>
+          product.wishlist = "Yes"
+        } else if (product.wishlist === false) {
+          product.wishlist = "No"
+        } else {
+          product.wishlist = product.wishlist
         }
+
         if (product.caused_acne === true) {
-          product.caused_acne = <img src={checkmark} height="25" alt={product.id}/>
+          product.caused_acne = "Yes"
+        } else if (product.caused_acne === false) {
+          product.caused_acne = "No"
+        } else {
+          product.caused_acne = product.caused_acne
         }
 
         return productData = [...productData,
@@ -47,6 +60,21 @@ export default class ProductTable extends Component {
     }
     return productData
   }
+
+  filterCaseInsensitive = (filter, row) => {
+    const id = filter.pivotId || filter.id;
+    const content = row[id];
+    if (typeof content !== 'undefined') {  
+      // filter by text in the table or if it's a object, filter by key
+        if (typeof content === 'object' && content !== null && content.props.children) {
+          // console.log(content)
+          return String(content.props.children).toLowerCase().includes(filter.value.toLowerCase());
+        } else {
+          console.log("content", content)
+            return String(content).toLowerCase().includes(filter.value.toLowerCase());
+        }
+    }
+  }
   
   render() {
     
@@ -70,23 +98,83 @@ export default class ProductTable extends Component {
     }, {
       Header: 'Rating',
       accessor: 'rating',
-      style: { 'text-align': 'center' },
+      style: { 'textAlign': 'center' },
       width: 60
   }, {
       Header: 'Current',
       accessor: 'current',
-      style: { 'text-align': 'center' },
-      width: 60
+      style: { 'textAlign': 'center' },
+      width: 60,
+      Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25"/>),
+      filterMethod: (filter, row) => {
+        if (filter.value === "all") {
+          return true;
+        }
+        if (filter.value === "true") {
+          return row[filter.id] === "Yes";
+        }
+        return row[filter.id] === "No";
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: "100%" }}
+          value={filter ? filter.value : "all"}
+        >
+          <option value="all">All</option>
+          <option value="true">Currently in Use</option>
+          <option value="false">Not in Use</option>
+        </select>
     }, {
       Header: 'Want',
       accessor: 'wishlist',
-      style: { 'text-align': 'center' },
-      width: 60
+      style: { 'textAlign': 'center' },
+      width: 60,
+      Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
+      filterMethod: (filter, row) => {
+        if (filter.value === "all") {
+          return true;
+        }
+        if (filter.value === "true") {
+          return row[filter.id] === "Yes";
+        }
+        return row[filter.id] === "No";
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: "100%" }}
+          value={filter ? filter.value : "all"}
+        >
+          <option value="all">All</option>
+          <option value="true">Wishlist</option>
+          <option value="false">Not on Wishlist</option>
+        </select>
     }, {
       Header: 'Acne',
       accessor: 'caused_acne',
-      style: { 'text-align': 'center' },
-      width: 60
+      style: { 'textAlign': 'center' },
+      width: 60,
+      Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
+      filterMethod: (filter, row) => {
+        if (filter.value === "all") {
+          return true;
+        }
+        if (filter.value === "true") {
+          return row[filter.id] === "Yes";
+        }
+        return row[filter.id] === "No";
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: "100%" }}
+          value={filter ? filter.value : "all"}
+        >
+          <option value="all">All</option>
+          <option value="true">Caused Acne</option>
+          <option value="false">Didn't Cause Acne</option>
+        </select>
     }, {
     //   Header: 'Opened',
     //   accessor: 'opened',
@@ -132,10 +220,7 @@ export default class ProductTable extends Component {
           }}
           className="-striped -highlight"
           filterable={true}
-          defaultFilterMethod={(filter, row, column) => {
-            const id = filter.pivotId || filter.id
-            return row[id] !== undefined ? String(row[id]).includes(filter.value) : true}
-          }
+          defaultFilterMethod={this.filterCaseInsensitive}
         />
         <center><p><i>Tip: Hold shift when sorting to sort by multiple columns!</i></p></center>
       </div>

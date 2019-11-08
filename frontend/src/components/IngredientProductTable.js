@@ -9,13 +9,27 @@ export default class IngredientProductTable extends Component {
     if (reviews) {
         reviews.map ((review) => {
           if (review.user_notes.current === true) {
-            review.user_notes.current = <img src={checkmark} height="25" alt={review.user_notes.id}/>
+            review.user_notes.current = "Yes"
+          } else if (review.user_notes.current === false) {
+            review.user_notes.current = "No"
+          } else {
+            review.user_notes.current = review.user_notes.current
           }
+
           if (review.user_notes.wishlist === true) {
-            review.user_notes.wishlist = <img src={checkmark} height="25" alt={review.user_notes.id}/>
+            review.user_notes.wishlist = "Yes"
+          } else if (review.user_notes.wishlist === false) {
+            review.user_notes.wishlist = "No"
+          } else {
+            review.user_notes.wishlist = review.user_notes.wishlist
           }
+
           if (review.user_notes.caused_acne === true) {
-            review.user_notes.caused_acne = <img src={checkmark} height="25" alt={review.user_notes.id}/>
+            review.user_notes.caused_acne = "Yes"
+          } else if (review.user_notes.caused_acne === false) {
+            review.user_notes.caused_acne = "No"
+          } else {
+            review.user_notes.caused_acne = review.user_notes.caused_acne
           }
           
           return reviewData = [...reviewData,
@@ -46,6 +60,21 @@ export default class IngredientProductTable extends Component {
     return reviewData
   }
   
+  filterCaseInsensitive = (filter, row) => {
+    const id = filter.pivotId || filter.id;
+    const content = row[id];
+    if (typeof content !== 'undefined') {  
+      // filter by text in the table or if it's a object, filter by key
+        if (typeof content === 'object' && content !== null && content.props.children) {
+          // console.log(content)
+          return String(content.props.children).toLowerCase().includes(filter.value.toLowerCase());
+        } else {
+          // console.log("content", content)
+            return String(content).toLowerCase().includes(filter.value.toLowerCase());
+        }
+    }
+  }
+
   render() {
     
     const columns = [{
@@ -68,23 +97,83 @@ export default class IngredientProductTable extends Component {
     }, {
       Header: 'Rating',
       accessor: 'rating',
-      style: { 'text-align': 'center' },
+      style: { 'textAlign': 'center' },
       width: 60
     }, {
       Header: 'Current',
       accessor: 'current',
-      style: { 'text-align': 'center' },
-      width: 60
+      style: { 'textAlign': 'center' },
+      width: 60,
+      Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
+      filterMethod: (filter, row) => {
+        if (filter.value === "all") {
+          return true;
+        }
+        if (filter.value === "true") {
+          return row[filter.id] === "Yes";
+        }
+        return row[filter.id] === "No";
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: "100%" }}
+          value={filter ? filter.value : "all"}
+        >
+          <option value="all">All</option>
+          <option value="true">Currently in Use</option>
+          <option value="false">Not in Use</option>
+        </select>
     }, {
       Header: 'Want',
       accessor: 'wishlist',
-      style: { 'text-align': 'center' },
-      width: 60
+      style: { 'textAlign': 'center' },
+      width: 60,
+      Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
+      filterMethod: (filter, row) => {
+        if (filter.value === "all") {
+          return true;
+        }
+        if (filter.value === "true") {
+          return row[filter.id] === "Yes";
+        }
+        return row[filter.id] === "No";
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: "100%" }}
+          value={filter ? filter.value : "all"}
+        >
+          <option value="all">All</option>
+          <option value="true">Wishlist</option>
+          <option value="false">Not on Wishlist</option>
+        </select>
     }, {
       Header: 'Acne',
       accessor: 'caused_acne',
-      style: { 'text-align': 'center' },
-      width: 60
+      style: { 'textAlign': 'center' },
+      width: 60,
+      Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
+      filterMethod: (filter, row) => {
+        if (filter.value === "all") {
+          return true;
+        }
+        if (filter.value === "true") {
+          return row[filter.id] === "Yes";
+        }
+        return row[filter.id] === "No";
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: "100%" }}
+          value={filter ? filter.value : "all"}
+        >
+          <option value="all">All</option>
+          <option value="true">Caused Acne</option>
+          <option value="false">Didn't Cause Acne</option>
+        </select>
     }, {
     //   Header: 'Opened',
     //   accessor: 'opened',
@@ -126,10 +215,7 @@ export default class IngredientProductTable extends Component {
           }}
           className="-striped -highlight"
           filterable={true}
-          defaultFilterMethod={(filter, row, column) => {
-            const id = filter.pivotId || filter.id
-            return row[id] !== undefined ? String(row[id]).includes(filter.value) : true}
-          }
+          defaultFilterMethod={this.filterCaseInsensitive}
         />
         <center><p><i>Tip: Hold shift when sorting to sort by multiple columns!</i></p></center>
       </div>
