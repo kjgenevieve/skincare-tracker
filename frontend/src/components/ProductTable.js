@@ -221,6 +221,12 @@ export default class ProductTable extends Component {
           className="-striped -highlight"
           filterable={true}
           defaultFilterMethod={this.filterCaseInsensitive}
+          defaultSorted={[
+            {
+              id: "current",
+              desc: true
+            }
+          ]}
         />
         <center><p><i>Tip: Hold shift when sorting to sort by multiple columns!</i></p></center>
       </div>
