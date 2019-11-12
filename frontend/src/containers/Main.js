@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Home from '../components/Home';
 import ProductTable from "../components/ProductTable";
+import AddToShelf from "../components/AddToShelf";
 import IngredientsTable from "../components/IngredientsTable";
 import IngredientProfile from "./IngredientProfile";
 
@@ -9,6 +10,7 @@ export default class Main extends Component {
   constructor() {
     super();
     this.state = {
+      allProducts: [],
       usersProducts: [],
       usersIngredients: [],
       currentIngredient: {}
@@ -20,7 +22,8 @@ export default class Main extends Component {
     const urls = [
       `http://localhost:3000/users/${user_id}`,
       "http://localhost:3000/user_products",
-      "http://localhost:3000/product_ingredients"
+      "http://localhost:3000/product_ingredients",
+      "http://localhost:3000/products"
     ];
 
     Promise.all(
@@ -35,12 +38,13 @@ export default class Main extends Component {
   getProductIds = data => {
     let userProductObjects = data[1];
     let allIngredients = data[2];
+    let allProducts = data[3];
     let productIds = data[0].user_products.map(product => product.product_id);
 
-    this.getUserProducts(productIds, userProductObjects, allIngredients);
+    this.getUserProducts(productIds, userProductObjects, allIngredients, allProducts);
   };
 
-  getUserProducts = (ids, objects, allIngredients) => {
+  getUserProducts = (ids, objects, allIngredients, allProducts) => {
     let userProducts = [];
     ids.map(userProductId => {
       return (userProducts = [
@@ -48,10 +52,10 @@ export default class Main extends Component {
         objects.find(userProduct => userProduct.product.id === userProductId)
       ]);
     });
-    this.getUserIngredients(ids, userProducts, allIngredients);
+    this.getUserIngredients(ids, userProducts, allIngredients, allProducts);
   };
 
-  getUserIngredients = (ids, userProducts, allIngredients) => {
+  getUserIngredients = (ids, userProducts, allIngredients, allProducts) => {
     let rawIngredients = [];
     ids.map(userProductId => {
       return (rawIngredients = [
@@ -75,13 +79,14 @@ export default class Main extends Component {
       return userIngredients;
     });
 
-    this.setNewState(userProducts, userIngredients);
+    this.setNewState(userProducts, userIngredients, allProducts);
   };
 
-  setNewState = (products, ingredients) => {
+  setNewState = (userProducts, ingredients, allProducts) => {
     this.setState({
-      usersProducts: products,
-      usersIngredients: ingredients
+      usersProducts: userProducts,
+      usersIngredients: ingredients,
+      allProducts: allProducts
     });
   };
 
@@ -100,6 +105,14 @@ export default class Main extends Component {
           path="/products"
           render={props => (
             <ProductTable {...props} products={this.state.usersProducts} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/addtoshelf"
+          render={props => (
+            <AddToShelf {...props} products={this.state.allProducts} />
           )}
         />
         <Route

@@ -23,6 +23,10 @@ export default class PageTitle extends Component {
                 // console.log(location)
                 icon = productsIcon;
                 greeting = "Products";
+            } else if (location === "addtoshelf") {
+                // console.log(location)
+                icon = productsIcon;
+                greeting = "Add to Your Shelf";
             } else if (location === "ingredients") {
                 // console.log(location)
                 icon = ingredientsIcon;
