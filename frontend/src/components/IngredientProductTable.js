@@ -13,6 +13,7 @@ export default class IngredientProductTable extends Component {
           } else if (review.user_notes.current === false) {
             review.user_notes.current = "No"
           } else {
+             // eslint-disable-next-line
             review.user_notes.current = review.user_notes.current
           }
 
@@ -21,6 +22,7 @@ export default class IngredientProductTable extends Component {
           } else if (review.user_notes.wishlist === false) {
             review.user_notes.wishlist = "No"
           } else {
+             // eslint-disable-next-line
             review.user_notes.wishlist = review.user_notes.wishlist
           }
 
@@ -29,6 +31,7 @@ export default class IngredientProductTable extends Component {
           } else if (review.user_notes.caused_acne === false) {
             review.user_notes.caused_acne = "No"
           } else {
+             // eslint-disable-next-line
             review.user_notes.caused_acne = review.user_notes.caused_acne
           }
           
@@ -104,6 +107,7 @@ export default class IngredientProductTable extends Component {
       accessor: 'current',
       style: { 'textAlign': 'center' },
       width: 60,
+       // eslint-disable-next-line
       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
       filterMethod: (filter, row) => {
         if (filter.value === "all") {
@@ -129,6 +133,7 @@ export default class IngredientProductTable extends Component {
       accessor: 'wishlist',
       style: { 'textAlign': 'center' },
       width: 60,
+       // eslint-disable-next-line
       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
       filterMethod: (filter, row) => {
         if (filter.value === "all") {
@@ -154,6 +159,7 @@ export default class IngredientProductTable extends Component {
       accessor: 'caused_acne',
       style: { 'textAlign': 'center' },
       width: 60,
+       // eslint-disable-next-line
       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
       filterMethod: (filter, row) => {
         if (filter.value === "all") {

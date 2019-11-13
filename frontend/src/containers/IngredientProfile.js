@@ -45,7 +45,7 @@ export default class IngredientProfile extends Component {
     setNewState = (ingredient, userProductReviews) => {
         this.setState({
             ingredient: ingredient,
-            userProductReviews, userProductReviews
+            userProductReviews: userProductReviews
         })
         // , () => console.log("STATE!", this.state)
     }

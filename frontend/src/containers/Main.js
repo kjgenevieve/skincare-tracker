@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Home from '../components/Home';
 import ProductTable from "../components/ProductTable";
+import ProductProfile from "../components/ProductProfile";
 import AddToShelf from "../components/AddToShelf";
+import AddEditProduct from "../components/AddEditProduct";
 import IngredientsTable from "../components/IngredientsTable";
 import IngredientProfile from "./IngredientProfile";
 
@@ -107,12 +109,25 @@ export default class Main extends Component {
             <ProductTable {...props} products={this.state.usersProducts} />
           )}
         />
-
+        <Route
+          exact
+          path="/products/:id"
+          render={() => (
+            <ProductProfile/>
+          )}
+        />
         <Route
           exact
           path="/addtoshelf"
           render={props => (
-            <AddToShelf {...props} products={this.state.allProducts} />
+            <AddToShelf {...props} products={this.state.allProducts} usersProducts={this.state.usersProducts}/>
+          )}
+        />
+        <Route
+          exact
+          path="/addtoshelf/:product_id"
+          render={props => (
+            <AddEditProduct {...props} products={this.state.allProducts} usersProducts={this.state.usersProducts}/>
           )}
         />
         <Route

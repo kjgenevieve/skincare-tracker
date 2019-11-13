@@ -1,30 +1,44 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 import PageTitle from './PageTitle';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
 export default class AddToShelf extends Component {
-    formatData = (products) => {
+    formatData = (products, usersProducts) => {
         // console.log(products)
-        
         let productData = []
-        if (products) {
-            
+        let usersProductIds = []
+        if (products && usersProducts) {
+            usersProducts.map ((product) => {
+                return usersProductIds.push(product.product.id)
+            })
+
+             // eslint-disable-next-line
             products.map ((product) => {
-                return productData = [...productData,
-                    {
-                        "id": product.id,
-                        "brand": product.brand,
-                        "name": product.name,
-                        "category": product.category,
-                        "img_url": <img src={product.img_url} height="100" alt={product.id}/>,
-                        "sunscreen_type": product.sunscreen_type,
-                        "spf": product.spf,
-                        "pa": product.pa,
-                        "add": "Button"
-                    }
-                ]
+                if (usersProductIds.includes(product.id)) {
+                    console.log("")
+                } else {
+                    return productData = [...productData,
+                        {
+                            "id": product.id,
+                            "brand": product.brand,
+                            "name": product.name,
+                            "category": product.category,
+                            "img_url": <img src={product.img_url} height="100" alt={product.id}/>,
+                            "sunscreen_type": product.sunscreen_type,
+                            "spf": product.spf,
+                            "pa": product.pa,
+                            "add": <Button
+                                as={ Link } to={`/addtoshelf/${product.id}`}
+                                className="ui button"
+                                >
+                                    Add to Shelf
+                                </Button>
+                        }
+                    ]
+                }
             })
         } else {
             console.log("Data not being received (ProductTable.js)")
@@ -87,7 +101,7 @@ export default class AddToShelf extends Component {
       <div>
             <PageTitle location="addtoshelf" />
             <ReactTable
-                data={this.formatData(this.props.products)}
+                data={this.formatData(this.props.products, this.props.usersProducts)}
                 columns={columns}
                 defaultPageSize={20}
                 noDataText="Loading..."

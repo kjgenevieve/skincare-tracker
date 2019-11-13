@@ -9,6 +9,7 @@ export default class IncludedIn extends Component {
         let neutral = [];
         
         if (reviews) {
+            // eslint-disable-next-line
             reviews.map((review) => {
                 let rating = review.user_notes.rating
                 

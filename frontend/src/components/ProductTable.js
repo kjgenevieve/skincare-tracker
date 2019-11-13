@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PageTitle from './PageTitle';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
@@ -14,6 +15,7 @@ export default class ProductTable extends Component {
         } else if (product.current === false) {
           product.current = "No"
         } else {
+           // eslint-disable-next-line
           product.current = product.current
         }
 
@@ -22,6 +24,7 @@ export default class ProductTable extends Component {
         } else if (product.wishlist === false) {
           product.wishlist = "No"
         } else {
+           // eslint-disable-next-line
           product.wishlist = product.wishlist
         }
 
@@ -30,6 +33,7 @@ export default class ProductTable extends Component {
         } else if (product.caused_acne === false) {
           product.caused_acne = "No"
         } else {
+           // eslint-disable-next-line
           product.caused_acne = product.caused_acne
         }
 
@@ -105,6 +109,7 @@ export default class ProductTable extends Component {
       accessor: 'current',
       style: { 'textAlign': 'center' },
       width: 60,
+       // eslint-disable-next-line
       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25"/>),
       filterMethod: (filter, row) => {
         if (filter.value === "all") {
@@ -130,6 +135,7 @@ export default class ProductTable extends Component {
       accessor: 'wishlist',
       style: { 'textAlign': 'center' },
       width: 60,
+       // eslint-disable-next-line
       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
       filterMethod: (filter, row) => {
         if (filter.value === "all") {
@@ -155,6 +161,7 @@ export default class ProductTable extends Component {
       accessor: 'caused_acne',
       style: { 'textAlign': 'center' },
       width: 60,
+       // eslint-disable-next-line
       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
       filterMethod: (filter, row) => {
         if (filter.value === "all") {
@@ -210,6 +217,12 @@ export default class ProductTable extends Component {
     return (
       <div>
         <PageTitle location="products"/>
+        <Link 
+          to="/addtoshelf"
+          name="Add to Shelf"
+        >
+          Add a New Product to Your Shelf
+        </Link>
         <ReactTable
           data={this.formatData(this.props.products)}
           columns={columns}
