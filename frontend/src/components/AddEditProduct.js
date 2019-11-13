@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
 import PageTitle from './PageTitle';
 import ProductDetails from './ProductDetails';
@@ -6,6 +7,7 @@ import 'react-table/react-table.css';
 
 export default class AddEditProduct extends Component {
     state = {
+        toProductsPage: false,
         product: {},
         user_id: null,
         product_id: null,
@@ -55,12 +57,19 @@ export default class AddEditProduct extends Component {
             })
         })
             .then(res => res.json())
-            .then(console.log)
+            .then(
+                this.setState(() => ({
+                    toProductsPage: true
+                }))
+            )
     }
 
   render() {
     const { current, rating, wishlist, caused_acne } = this.state
-  
+    
+    if (this.state.toProductsPage === true) {
+        return <Redirect to='/products' />
+    }
     return (
       <div>
             <PageTitle location="addtoshelf" />

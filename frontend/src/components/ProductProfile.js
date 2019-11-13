@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Button, Confirm } from 'semantic-ui-react';
 import PageTitle from './PageTitle';
 import ProductIngredients from './ProductIngredients';
 import ReactTable from 'react-table';
@@ -12,7 +13,9 @@ export default class ProductProfile extends Component {
         this.state = {
             product: {},
             productReview: {},
-            ingredients: []
+            ingredients: [],
+            open: false,
+            toProductsPage: false
         }
     }
 
@@ -62,11 +65,56 @@ export default class ProductProfile extends Component {
             ingredients: ingredients
         })
     }
+
+    // Delete button functions
+    open = () => this.setState({ open: true })
+    close = () => this.setState({ open: false })
+    
+    handleConfirmDelete = () => {
+        let product_review_id = this.state.productReview.id
+        fetch(`http://localhost:3000/user_products/${product_review_id}`, {
+            method: "DELETE",
+            headers: {
+                "Content_Type": "application/json",
+                Accept: "application/json"
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response => response.json();
+            } else {
+                throw new Error("Network response was not ok.");
+            }
+          })
+        .then(
+            this.setState(() => ({
+                toProductsPage: true
+            }))
+        )
+        .catch(error => console.log(error.message));
+    }
     
     render() {
+        if (this.state.toProductsPage === true) {
+            return <Redirect to='/products' />
+        }
         return (
             <div>
                 <PageTitle location="product profile" productBrand={this.state.product.brand} productName={this.state.product.name} productImage={this.state.product.img_url}/>
+                <Button 
+                    as={ Link } to={`/addtoshelf/${this.state.product.id}`}
+                    className="ui button"
+                >
+                    Add to Shelf
+                </Button>
+                <Button onClick={this.open}>
+                    Delete from Shelf
+                </Button>
+                <Confirm
+                    open={this.state.open}
+                    onCancel={this.close}
+                    onConfirm={this.handleConfirmDelete}
+                />
                 <div>
                     <div>
                         <b>Brand: </b> {this.state.product.brand}

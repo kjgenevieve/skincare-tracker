@@ -7,9 +7,12 @@ import checkmark from '../assets/checkmark.svg'
 
 export default class ProductTable extends Component {
   formatData = (products) => {
+    
     let productData = []
     if (products) {
       products.map ((product) => {
+        
+        // Format so checkmarks will render
         if (product.current === true) {
           product.current = "Yes"
         } else if (product.current === false) {
@@ -39,7 +42,7 @@ export default class ProductTable extends Component {
 
         return productData = [...productData,
           {
-            "id": product.id,
+            "id": product.product.id,
             "current": product.current,
             "rating": product.rating,
             "wishlist": product.wishlist,
@@ -49,7 +52,7 @@ export default class ProductTable extends Component {
             "notes": product.notes,
             "product": {
               "brand": product.product.brand,
-              "name": product.product.name,
+              "name": <Link to={`/products/${product.product.id}`}>{product.product.name}</Link>,
               "category": product.product.category,
               "img_url": <img src={product.product.img_url} height="100" alt={product.id}/>,
               "sunscreen_type": product.product.sunscreen_type,
@@ -79,9 +82,7 @@ export default class ProductTable extends Component {
         }
     }
   }
-  
   render() {
-    
     const columns = [{
       Header: 'Image',
       accessor: 'product.img_url',

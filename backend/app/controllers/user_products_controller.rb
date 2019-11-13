@@ -24,8 +24,8 @@ class UserProductsController < ApplicationController
     # end
 
     def destroy
-        @user_products = UserProduct.find(params[:id])
-        @user_products.destroy
+        @user_product = UserProduct.find(params[:id])
+        @user_product.destroy
     end 
 
     def user_products_params

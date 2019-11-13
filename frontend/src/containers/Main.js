@@ -112,8 +112,8 @@ export default class Main extends Component {
         <Route
           exact
           path="/products/:id"
-          render={() => (
-            <ProductProfile/>
+          render={(props) => (
+            <ProductProfile {...props} />
           )}
         />
         <Route

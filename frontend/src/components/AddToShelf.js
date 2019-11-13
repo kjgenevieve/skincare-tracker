@@ -24,7 +24,7 @@ export default class AddToShelf extends Component {
                         {
                             "id": product.id,
                             "brand": product.brand,
-                            "name": product.name,
+                            "name": <Link to={`/products/${product.id}`}>{product.name}</Link>,
                             "category": product.category,
                             "img_url": <img src={product.img_url} height="100" alt={product.id}/>,
                             "sunscreen_type": product.sunscreen_type,
@@ -46,20 +46,20 @@ export default class AddToShelf extends Component {
         return productData
     }
     
-    //   filterCaseInsensitive = (filter, row) => {
-    //     const id = filter.pivotId || filter.id;
-    //     const content = row[id];
-    //     if (typeof content !== 'undefined') {  
-    //       // filter by text in the table or if it's a object, filter by key
-    //         if (typeof content === 'object' && content !== null && content.props.children) {
-    //           // console.log(content)
-    //           return String(content.props.children).toLowerCase().includes(filter.value.toLowerCase());
-    //         } else {
-    //           console.log("content", content)
-    //             return String(content).toLowerCase().includes(filter.value.toLowerCase());
-    //         }
-    //     }
-    //   }
+      filterCaseInsensitive = (filter, row) => {
+        const id = filter.pivotId || filter.id;
+        const content = row[id];
+        if (typeof content !== 'undefined') {  
+          // filter by text in the table or if it's a object, filter by key
+            if (typeof content === 'object' && content !== null && content.props.children) {
+              // console.log(content)
+              return String(content.props.children).toLowerCase().includes(filter.value.toLowerCase());
+            } else {
+              console.log("content", content)
+                return String(content).toLowerCase().includes(filter.value.toLowerCase());
+            }
+        }
+      }
 
   render() {
     const columns = [{
