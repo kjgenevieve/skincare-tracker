@@ -12,9 +12,6 @@ export default class IngredientProfile extends Component {
         }
     }
 
-    // setState in this component,
-    // filter through the products to pass into good/bad/neutral
-
     componentDidMount() {
         this.getIngredientsProducts()
     }

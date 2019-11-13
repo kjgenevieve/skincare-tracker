@@ -1,247 +1,108 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PageTitle from './PageTitle';
+import ProductIngredients from './ProductIngredients';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import checkmark from '../assets/checkmark.svg'
 
 export default class ProductProfile extends Component {
-//   formatData = (products) => {
-//     let productData = []
-//     if (products) {
-//       products.map ((product) => {
-//         if (product.current === true) {
-//           product.current = "Yes"
-//         } else if (product.current === false) {
-//           product.current = "No"
-//         } else {
-//            // eslint-disable-next-line
-//           product.current = product.current
-//         }
+    constructor() {
+        super();
+        this.state = {
+            product: {},
+            productReview: {},
+            ingredients: []
+        }
+    }
 
-//         if (product.wishlist === true) {
-//           product.wishlist = "Yes"
-//         } else if (product.wishlist === false) {
-//           product.wishlist = "No"
-//         } else {
-//            // eslint-disable-next-line
-//           product.wishlist = product.wishlist
-//         }
+    componentDidMount() {
+        this.getData();
+    }
 
-//         if (product.caused_acne === true) {
-//           product.caused_acne = "Yes"
-//         } else if (product.caused_acne === false) {
-//           product.caused_acne = "No"
-//         } else {
-//            // eslint-disable-next-line
-//           product.caused_acne = product.caused_acne
-//         }
+    getData = () => {
+        let userId = 13
+        let productId = window.location.pathname.split("/").pop()
+        const urls = [
+            `http://localhost:3000/products/${productId}/`,
+            `http://localhost:3000/users/${userId}/user_products`
+        ]
+        
+        Promise.all(
+            urls.map(url =>
+                fetch(url)
+                .then(resp => resp.json())
+            )
+        )
+        .then(data => this.destructureData(data))
+    }
 
-//         return productData = [...productData,
-//           {
-//             "id": product.id,
-//             "current": product.current,
-//             "rating": product.rating,
-//             "wishlist": product.wishlist,
-//             "opened": product.opened,
-//             "expires": product.expires,
-//             "caused_acne": product.caused_acne,
-//             "notes": product.notes,
-//             "product": {
-//               "brand": product.product.brand,
-//               "name": product.product.name,
-//               "category": product.product.category,
-//               "img_url": <img src={product.product.img_url} height="100" alt={product.id}/>,
-//               "sunscreen_type": product.product.sunscreen_type,
-//               "spf": product.product.spf,
-//               "pa": product.product.pa,
-//             }
-//           }
-//         ]
-//       })
-//     } else {
-//       console.log("Data not being received (ProductTable.js)")
-//     }
-//     return productData
-//   }
+    destructureData = (data) => {
+        let product = data[0]
+        let ingredients = product.ingredients
+        let allReviews = data[1]
+        this.findProductReview(product, ingredients, allReviews)
+    }
 
-//   filterCaseInsensitive = (filter, row) => {
-//     const id = filter.pivotId || filter.id;
-//     const content = row[id];
-//     if (typeof content !== 'undefined') {  
-//       // filter by text in the table or if it's a object, filter by key
-//         if (typeof content === 'object' && content !== null && content.props.children) {
-//           // console.log(content)
-//           return String(content.props.children).toLowerCase().includes(filter.value.toLowerCase());
-//         } else {
-//           console.log("content", content)
-//             return String(content).toLowerCase().includes(filter.value.toLowerCase());
-//         }
-//     }
-//   }
-  
-  render() {
-    
-//     const columns = [{
-//       Header: 'Image',
-//       accessor: 'product.img_url',
-//       width: 115
-//     }, {
-//       Header: 'Brand',
-//       accessor: 'product.brand',
-//       width: 100
-//     }, {
-//       Header: 'Name',
-//       accessor: 'product.name',
-//       style: { 'whiteSpace': 'unset' },
-//       width: 175
-//     }, {
-//       Header: 'Category',
-//       accessor: 'product.category',
-//       width: 100
-//     }, {
-//       Header: 'Rating',
-//       accessor: 'rating',
-//       style: { 'textAlign': 'center' },
-//       width: 60
-//   }, {
-//       Header: 'Current',
-//       accessor: 'current',
-//       style: { 'textAlign': 'center' },
-//       width: 60,
-//        // eslint-disable-next-line
-//       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25"/>),
-//       filterMethod: (filter, row) => {
-//         if (filter.value === "all") {
-//           return true;
-//         }
-//         if (filter.value === "true") {
-//           return row[filter.id] === "Yes";
-//         }
-//         return row[filter.id] === "No";
-//       },
-//       Filter: ({ filter, onChange }) =>
-//         <select
-//           onChange={event => onChange(event.target.value)}
-//           style={{ width: "100%" }}
-//           value={filter ? filter.value : "all"}
-//         >
-//           <option value="all">All</option>
-//           <option value="true">Currently in Use</option>
-//           <option value="false">Not in Use</option>
-//         </select>
-//     }, {
-//       Header: 'Want',
-//       accessor: 'wishlist',
-//       style: { 'textAlign': 'center' },
-//       width: 60,
-//        // eslint-disable-next-line
-//       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
-//       filterMethod: (filter, row) => {
-//         if (filter.value === "all") {
-//           return true;
-//         }
-//         if (filter.value === "true") {
-//           return row[filter.id] === "Yes";
-//         }
-//         return row[filter.id] === "No";
-//       },
-//       Filter: ({ filter, onChange }) =>
-//         <select
-//           onChange={event => onChange(event.target.value)}
-//           style={{ width: "100%" }}
-//           value={filter ? filter.value : "all"}
-//         >
-//           <option value="all">All</option>
-//           <option value="true">Wishlist</option>
-//           <option value="false">Not on Wishlist</option>
-//         </select>
-//     }, {
-//       Header: 'Acne',
-//       accessor: 'caused_acne',
-//       style: { 'textAlign': 'center' },
-//       width: 60,
-//        // eslint-disable-next-line
-//       Cell: ({ value }) => (value === "No" ? "" : <img src={checkmark} height="25" />),
-//       filterMethod: (filter, row) => {
-//         if (filter.value === "all") {
-//           return true;
-//         }
-//         if (filter.value === "true") {
-//           return row[filter.id] === "Yes";
-//         }
-//         return row[filter.id] === "No";
-//       },
-//       Filter: ({ filter, onChange }) =>
-//         <select
-//           onChange={event => onChange(event.target.value)}
-//           style={{ width: "100%" }}
-//           value={filter ? filter.value : "all"}
-//         >
-//           <option value="all">All</option>
-//           <option value="true">Caused Acne</option>
-//           <option value="false">Didn't Cause Acne</option>
-//         </select>
-//     }, {
-//     //   Header: 'Opened',
-//     //   accessor: 'opened',
-//     //   width: 75
-//     // }, {
-//     //   Header: 'Expires',
-//     //   accessor: 'expires',
-//     //   width: 75
-//     // }, {
-//       Header: 'Sunscreen',
-//       columns: [{
-//           Header: 'Type',
-//           accessor: 'product.sunscreen_type',
-//           width: 60,
-//       }, {
-//           Header: 'SPF',
-//           accessor: 'product.spf',
-//           width: 45,
-//       }, {
-//           Header: 'PA',
-//           accessor: 'product.pa',
-//           style: { 'whiteSpace': 'unset' },
-//           width: 45,
-//       }]
-//     }, {
-//       Header: 'Notes',
-//       accessor: 'notes',
-//       style: { 'whiteSpace': 'unset' },
-//       // width: 175,
-//     }
-//   ]
-
-    return (
-      <div>
-        <PageTitle location="product profile" />
-        {/* <Link 
-          to="/products/:id"
-          name="Product Profile"
-        >
-          Add a New Product to Your Shelf
-        </Link> */}
-        {/* <ReactTable
-          data={this.formatData(this.props.products)}
-          columns={columns}
-          defaultPageSize={20}
-          noDataText="Rate products to see them here."
-          style={{
-            height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
-          }}
-          className="-striped -highlight"
-          filterable={true}
-          defaultFilterMethod={this.filterCaseInsensitive}
-          defaultSorted={[
-            {
-              id: "current",
-              desc: true
+    findProductReview = (product, ingredients, allReviews) => {
+        let productReview = {}
+        allReviews.map ((review) => {
+            if (review.product.id === product.id) {
+                productReview = review
             }
-          ]}
-        /> */}
-      </div>
-    )
-  }
+        })
+        
+        this.setNewState(product, ingredients, productReview)
+    }
+
+    setNewState = (product, ingredients, productReview) => {
+        this.setState({
+            product: product,
+            productReview: productReview,
+            ingredients: ingredients
+        })
+    }
+    
+    render() {
+        return (
+            <div>
+                <PageTitle location="product profile" productBrand={this.state.product.brand} productName={this.state.product.name} productImage={this.state.product.img_url}/>
+                <div>
+                    <div>
+                        <b>Brand: </b> {this.state.product.brand}
+                    </div>
+                    <div>
+                        <b>Product: </b> {this.state.product.name}
+                    </div>
+                    <div>
+                        <b>Category: </b> {this.state.product.category}
+                    </div>
+                    <div>
+                        <b>SPF: </b> {this.state.product.spf}
+                    </div>
+                    <div>
+                        <b>PA: </b> {this.state.product.pa}
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <b>Rating: </b> {this.state.productReview.rating}
+                    </div>
+                    <div>
+                        <b>Current: </b> {this.state.productReview.current}
+                    </div>
+                    <div>
+                        <b>Wishlist: </b> {this.state.productReview.wishlist}
+                    </div>
+                    <div>
+                        <b>Caused Acne: </b> {this.state.productReview.caused_acne}
+                    </div>
+                    <div>
+                        <b>Notes: </b> {this.state.productReview.notes}
+                    </div>
+                </div>
+                <ProductIngredients ingredients={this.state.ingredients}/>
+            </div>
+        )
+    }
 }

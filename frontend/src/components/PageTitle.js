@@ -23,6 +23,10 @@ export default class PageTitle extends Component {
                 // console.log(location)
                 icon = productsIcon;
                 greeting = "Products";
+            } else if (location === "product profile") {
+                // console.log(location)
+                icon = this.props.productImage;
+                greeting = this.props.productBrand + " | " + this.props.productName;
             } else if (location === "addtoshelf") {
                 // console.log(location)
                 icon = productsIcon;
