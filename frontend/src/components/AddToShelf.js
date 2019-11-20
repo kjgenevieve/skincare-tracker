@@ -6,44 +6,43 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
 export default class AddToShelf extends Component {
-    formatData = (products, usersProducts) => {
-        // console.log(products)
-        let productData = []
-        let usersProductIds = []
-        if (products && usersProducts) {
-            usersProducts.map ((product) => {
-                return usersProductIds.push(product.product.id)
-            })
+    formatData = (products, usersProductReviews) => {
+      let productData = []
+      let usersProductIds = []
+      if (products && usersProductReviews) {
+        usersProductReviews.product_reviews.map ((review) => {
+          return usersProductIds.push(review.product.id)          
+        })
 
-             // eslint-disable-next-line
-            products.map ((product) => {
-                if (usersProductIds.includes(product.id)) {
-                    console.log("")
-                } else {
-                    return productData = [...productData,
-                        {
-                            "id": product.id,
-                            "brand": product.brand,
-                            "name": <Link to={`/products/${product.id}`}>{product.name}</Link>,
-                            "category": product.category,
-                            "img_url": <img src={product.img_url} height="100" alt={product.id}/>,
-                            "sunscreen_type": product.sunscreen_type,
-                            "spf": product.spf,
-                            "pa": product.pa,
-                            "add": <Button
-                                as={ Link } to={`/addtoshelf/${product.id}`}
-                                className="ui button"
-                                >
-                                    Add to Shelf
-                                </Button>
-                        }
-                    ]
-                }
-            })
-        } else {
-            console.log("Data not being received (ProductTable.js)")
-        }
-        return productData
+        // eslint-disable-next-line
+        products.map ((product) => {
+            if (usersProductIds.includes(product.id)) {
+              // This line can be removed if there's a reasonable ".excludes()" method.
+            } else {
+                return productData = [...productData,
+                    {
+                        "id": product.id,
+                        "brand": product.brand,
+                        "name": <Link to={`/products/${product.id}`}>{product.name}</Link>,
+                        "category": product.category,
+                        "img_url": <img src={product.img_url} height="100" alt={product.id}/>,
+                        "sunscreen_type": product.sunscreen_type,
+                        "spf": product.spf,
+                        "pa": product.pa,
+                        "add": <Button
+                            as={ Link } to={`/addtoshelf/${product.id}`}
+                            className="ui button"
+                            >
+                                Add to Shelf
+                            </Button>
+                    }
+                ]
+            }
+        })
+      } else {
+          console.log("Data not being received (ProductTable.js)")
+      }
+      return productData
     }
     
       filterCaseInsensitive = (filter, row) => {
@@ -101,7 +100,7 @@ export default class AddToShelf extends Component {
       <div>
             <PageTitle location="addtoshelf" />
             <ReactTable
-                data={this.formatData(this.props.products, this.props.usersProducts)}
+                data={this.formatData(this.props.products, this.props.usersProductReviews)}
                 columns={columns}
                 defaultPageSize={20}
                 noDataText="Loading..."

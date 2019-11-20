@@ -6,58 +6,59 @@ import 'react-table/react-table.css';
 import checkmark from '../assets/checkmark.svg'
 
 export default class ProductTable extends Component {
-  formatData = (products) => {
-    
+  formatData = (usersProductReviews) => {
     let productData = []
-    if (products) {
-      products.map ((product) => {
-        
+    if (usersProductReviews) {
+      usersProductReviews.product_reviews.map ((productReview) => {
+        let product = productReview.product
+        let review = productReview.user_review
+
         // Format so checkmarks will render
-        if (product.current === true) {
-          product.current = "Yes"
-        } else if (product.current === false) {
-          product.current = "No"
+        if (review.current === true) {
+          review.current = "Yes"
+        } else if (review.current === false) {
+          review.current = "No"
         } else {
            // eslint-disable-next-line
-          product.current = product.current
+          review.current = review.current
         }
 
-        if (product.wishlist === true) {
-          product.wishlist = "Yes"
-        } else if (product.wishlist === false) {
-          product.wishlist = "No"
+        if (review.wishlist === true) {
+          review.wishlist = "Yes"
+        } else if (review.wishlist === false) {
+          review.wishlist = "No"
         } else {
            // eslint-disable-next-line
-          product.wishlist = product.wishlist
+          review.wishlist = review.wishlist
         }
 
-        if (product.caused_acne === true) {
-          product.caused_acne = "Yes"
-        } else if (product.caused_acne === false) {
-          product.caused_acne = "No"
+        if (review.caused_acne === true) {
+          review.caused_acne = "Yes"
+        } else if (review.caused_acne === false) {
+          review.caused_acne = "No"
         } else {
            // eslint-disable-next-line
-          product.caused_acne = product.caused_acne
+          review.caused_acne = review.caused_acne
         }
 
         return productData = [...productData,
           {
-            "id": product.product.id,
-            "current": product.current,
-            "rating": product.rating,
-            "wishlist": product.wishlist,
-            "opened": product.opened,
-            "expires": product.expires,
-            "caused_acne": product.caused_acne,
-            "notes": product.notes,
+            "id": product.id,
+            "current": review.current,
+            "rating": review.rating,
+            "wishlist": review.wishlist,
+            "opened": review.opened,
+            "expires": review.expires,
+            "caused_acne": review.caused_acne,
+            "notes": review.notes,
             "product": {
-              "brand": product.product.brand,
-              "name": <Link to={`/products/${product.product.id}`}>{product.product.name}</Link>,
-              "category": product.product.category,
-              "img_url": <img src={product.product.img_url} height="100" alt={product.id}/>,
-              "sunscreen_type": product.product.sunscreen_type,
-              "spf": product.product.spf,
-              "pa": product.product.pa,
+              "brand": product.brand,
+              "name": <Link to={`/products/${product.id}`}>{product.name}</Link>,
+              "category": product.category,
+              "img_url": <img src={product.img_url} height="100" alt={product.id}/>,
+              "sunscreen_type": product.sunscreen_type,
+              "spf": product.spf,
+              "pa": product.pa,
             }
           }
         ]
@@ -225,7 +226,7 @@ export default class ProductTable extends Component {
           Add a New Product to Your Shelf
         </Link>
         <ReactTable
-          data={this.formatData(this.props.products)}
+          data={this.formatData(this.props.usersProductReviews)}
           columns={columns}
           defaultPageSize={20}
           noDataText="Rate products to see them here."

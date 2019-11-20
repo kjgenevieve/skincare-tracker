@@ -31,4 +31,23 @@ class UserProductsController < ApplicationController
     def user_products_params
         params.permit(:id, :user_id, :product_id, :current, :rating, :wishlist, :opened, :expires, :caused_acne, :notes)
     end
+
+    def user_reviews
+        params.permit(:user_id)
+        
+        user_reviews = UserProduct.where(user_id: params[:user_id])
+        
+        product_reviews = []
+        
+        user_reviews.map do |review|
+            product_reviews << {user_review: review, product: review.product}
+        end
+        
+        
+
+        render json: {
+            user_id: params[:user_id],
+            product_reviews: product_reviews
+        }
+    end
 end

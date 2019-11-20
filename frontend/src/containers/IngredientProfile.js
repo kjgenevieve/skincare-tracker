@@ -17,12 +17,11 @@ export default class IngredientProfile extends Component {
     }
 
     getIngredientsProducts = () => {
-        let userId = 13
+        let userId = 1
         let ingredientId = window.location.pathname.split("/").pop()
         
         fetch(`http://localhost:3000/users/${userId}/ingredients/${ingredientId}`)
         .then(res => res.json())
-        // .then(console.log)
         .then(data => this.destructureData(data))
     }
 
@@ -44,12 +43,7 @@ export default class IngredientProfile extends Component {
             ingredient: ingredient,
             userProductReviews: userProductReviews
         })
-        // , () => console.log("STATE!", this.state)
     }
-    
-    // SHOW OR PASS INFORMATION
-
-
     
     render() {
         return (

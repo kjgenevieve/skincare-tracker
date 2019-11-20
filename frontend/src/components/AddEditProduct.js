@@ -52,7 +52,7 @@ export default class AddEditProduct extends Component {
                 "expires": null,
                 "caused_acne": this.state.caused_acne,
                 "notes": this.state.notes,
-                "user_id": 13,
+                "user_id": 1,
                 "product_id": this.props.match.params.product_id,
             })
         })

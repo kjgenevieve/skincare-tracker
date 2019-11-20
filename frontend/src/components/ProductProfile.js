@@ -6,7 +6,6 @@ import ProductIngredients from './ProductIngredients';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import checkmark from '../assets/checkmark.svg'
-
 export default class ProductProfile extends Component {
     constructor() {
         super();
@@ -24,7 +23,7 @@ export default class ProductProfile extends Component {
     }
 
     getData = () => {
-        let userId = 13
+        let userId = 1
         let productId = window.location.pathname.split("/").pop()
         const urls = [
             `http://localhost:3000/products/${productId}/`,

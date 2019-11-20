@@ -9,8 +9,8 @@ export default class IngredientsTable extends Component {
   formatData = (ingredients) => {
     let ingredientData = ingredients.map ((ingredient) => {
       return {
-          "ingredient": <Link to={`/ingredients/${ingredient.ingredient.id}`}>{ingredient.ingredient.name}</Link>,
-          "como_rating": ingredient.ingredient.como_rating,
+          "ingredient": <Link to={`/ingredients/${ingredient.id}`}>{ingredient.name}</Link>,
+          "como_rating": ingredient.como_rating,
         }
     })
     return ingredientData
@@ -20,7 +20,6 @@ export default class IngredientsTable extends Component {
     const id = filter.pivotId || filter.id;
     const content = row[id];
     if (typeof content !== 'undefined') {
-      // console.log(content)
       // filter by text in the table or if it's a object, filter by key
         if (typeof content === 'object' && content !== null && content.props.children) {
           return String(content.props.children).toLowerCase().includes(filter.value.toLowerCase());          
@@ -101,5 +100,4 @@ export default class IngredientsTable extends Component {
       </div>
     )
   }
-
 }
