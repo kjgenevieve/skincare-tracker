@@ -13,7 +13,6 @@ export default class AddToShelf extends Component {
         usersProductReviews.product_reviews.map ((review) => {
           return usersProductIds.push(review.product.id)          
         })
-
         // eslint-disable-next-line
         products.map ((product) => {
             if (usersProductIds.includes(product.id)) {
