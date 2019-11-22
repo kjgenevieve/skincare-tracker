@@ -3,7 +3,7 @@ A skincare tracker that enables users to find correlations between skin health a
 
 ## Motivation
 As an acne-prone logic enthusiast, I was able to cure the majority of my skin problems through a spreadsheet. </br>
-<img src="i.imgur.com/MJzWJiC.gif" alt="Skincare Spreadsheet Gif" /> </br>
+<img src="spreadsheet_demo.gif" /> </br>
 As the data grew, however, the spreadsheet became more cumbersome. I wanted to simplify the process of tracking what goes onto face by creating an app.
 
 ## Screenshots/Demo
